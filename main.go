@@ -178,17 +178,17 @@ func handleAppMentionEvent(event *slackevents.AppMentionEvent, client *slack.Cli
 func handleSlashCommand(command slack.SlashCommand, client *slack.Client) (interface{}, error) {
 	// We need to switch depending on the command
 	switch command.Command {
-	case "/hello":
+	case "/namaste":
 		// This was a hello command, so pass it along to the proper function
 		return nil, handleHelloCommand(command, client)
-	case "/was-this-article-useful":
+	case "/red-pill-blue-pill":
 		return handleChoice(command, client)
 	}
 
 	return nil, nil
 }
 
-// handleHelloCommand will take care of /hello submissions
+// handleHelloCommand will take care of /namaste submissions
 func handleHelloCommand(command slack.SlashCommand, client *slack.Client) error {
 	// The Input is found in the text field so
 	// Creating the attachment and assigned based on the message
@@ -205,7 +205,7 @@ func handleHelloCommand(command slack.SlashCommand, client *slack.Client) error 
 	}
 
 	// Greeting the user
-	attachment.Text = fmt.Sprintf("Hello %s", command.Text)
+	attachment.Text = fmt.Sprintf("Bonjour😏 %s", command.Text)
 	attachment.Color = "#4af030"
 
 	// Sending the message to the channel
