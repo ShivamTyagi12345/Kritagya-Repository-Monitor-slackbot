@@ -56,7 +56,7 @@ func main() {
 					// The Event sent on the channel is not the same as the EventAPI events so we need to type cast it
 					eventsAPIEvent, ok := event.Data.(slackevents.EventsAPIEvent)
 					if !ok {
-						log.Printf("❌Could not type cast the event to the EventsAPIEvent: %v\n", event)
+						log.Printf("❎Could not type cast the event to the EventsAPIEvent: %v\n", event)
 						continue
 					}
 					// We need to send an Acknowledge to the slack server
@@ -68,6 +68,37 @@ func main() {
 						// Replacing with actual err handeling
 						log.Fatal(err)
 					}
+
+				// Handle Slash Commands
+				case socketmode.EventTypeSlashCommand:
+
+					command, ok := event.Data.(slack.SlashCommand)
+					if !ok {
+						log.Printf("Could not type cast the message to a SlashCommand: %v\n", command)
+						continue
+					}
+					// handleSlashCommand will take care of the command
+					payload, err := handleSlashCommand(command, client)
+					if err != nil {
+						log.Fatal(err)
+					}
+					// The payload is the response
+					socketClient.Ack(*event.Request, payload)
+
+				case socketmode.EventTypeInteractive:
+					interaction, ok := event.Data.(slack.InteractionCallback)
+					if !ok {
+						log.Printf("Could not type cast the message to a Interaction callback: %v\n", interaction)
+						continue
+					}
+
+					err := handleInteractionEvent(interaction, client)
+					if err != nil {
+						log.Fatal(err)
+					}
+					socketClient.Ack(*event.Request)
+					//end of switch
+
 				}
 
 			}
@@ -134,11 +165,108 @@ func handleAppMentionEvent(event *slackevents.AppMentionEvent, client *slack.Cli
 		attachment.Pretext = "Wohoo🎉What is my work today"
 		attachment.Color = "#3d3d3d"
 	}
-	// Send the message to the channel
-	// The Channel is available in the event message
+	// Sending the message to the channel
+	// The Channel  value  is in the event message
 	_, _, err = client.PostMessage(event.Channel, slack.MsgOptionAttachments(attachment))
 	if err != nil {
 		return fmt.Errorf("📍failed to post message: %w", err)
 	}
+	return nil
+}
+
+// handleSlashCommand will take a slash command and route to the appropriate function
+func handleSlashCommand(command slack.SlashCommand, client *slack.Client) (interface{}, error) {
+	// We need to switch depending on the command
+	switch command.Command {
+	case "/hello":
+		// This was a hello command, so pass it along to the proper function
+		return nil, handleHelloCommand(command, client)
+	case "/was-this-article-useful":
+		return handleChoice(command, client)
+	}
+
+	return nil, nil
+}
+
+// handleHelloCommand will take care of /hello submissions
+func handleHelloCommand(command slack.SlashCommand, client *slack.Client) error {
+	// The Input is found in the text field so
+	// Creating the attachment and assigned based on the message
+	attachment := slack.Attachment{}
+	// Adding Some default context like user who mentioned the bot
+	attachment.Fields = []slack.AttachmentField{
+		{
+			Title: "Date⌛",
+			Value: time.Now().String(),
+		}, {
+			Title: "Caller📞",
+			Value: command.UserName,
+		},
+	}
+
+	// Greeting the user
+	attachment.Text = fmt.Sprintf("Hello %s", command.Text)
+	attachment.Color = "#4af030"
+
+	// Sending the message to the channel
+	// The Channel is available in the command.ChannelID
+	_, _, err := client.PostMessage(command.ChannelID, slack.MsgOptionAttachments(attachment))
+	if err != nil {
+		return fmt.Errorf("📍failed to post message: %w", err)
+	}
+	return nil
+}
+
+// handleChoice will trigger a Yes or No question to the initializer
+func handleChoice(command slack.SlashCommand, client *slack.Client) (interface{}, error) {
+	// Creating the attachment and assigned based on the message
+	attachment := slack.Attachment{}
+
+	// Creating the checkbox element
+	checkbox := slack.NewCheckboxGroupsBlockElement("answer",
+		slack.NewOptionBlockObject("yes", &slack.TextBlockObject{Text: "Yes", Type: slack.MarkdownType}, &slack.TextBlockObject{Text: "🎡Did you Enjoy it?", Type: slack.MarkdownType}),
+		slack.NewOptionBlockObject("no", &slack.TextBlockObject{Text: "No", Type: slack.MarkdownType}, &slack.TextBlockObject{Text: "🎭Did you Dislike it?", Type: slack.MarkdownType}),
+	)
+	// Creating the Accessory that will be included in the Block and add the checkbox to it
+	accessory := slack.NewAccessory(checkbox)
+	// Adding Blocks to the attachment
+	attachment.Blocks = slack.Blocks{
+		BlockSet: []slack.Block{
+			// Creating a new section block element and add some text and the accessory to it
+			slack.NewSectionBlock(
+				&slack.TextBlockObject{
+					Type: slack.MarkdownType,
+					Text: "Did you think I was Helpful🤖?",
+				},
+				nil,
+				accessory,
+			),
+		},
+	}
+
+	attachment.Text = "Rate the experience😊"
+	attachment.Color = "#4af030"
+	return attachment, nil
+}
+
+func handleInteractionEvent(interaction slack.InteractionCallback, client *slack.Client) error {
+	// This is where we would handle the interaction
+	// Switch depending on the Type
+	log.Printf("The action called is: %s\n", interaction.ActionID)
+	log.Printf("The response was of type: %s\n", interaction.Type)
+	switch interaction.Type {
+	case slack.InteractionTypeBlockActions:
+		// This is a block action, so we need to handle it
+
+		for _, action := range interaction.ActionCallback.BlockActions {
+			log.Printf("%+v", action)
+			log.Println("Selected option: ", action.SelectedOptions)
+
+		}
+
+	default:
+
+	}
+
 	return nil
 }
