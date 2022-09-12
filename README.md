@@ -1,4 +1,5 @@
 # SlackBot
+![1500x500](https://user-images.githubusercontent.com/60812924/189603160-e076f7ac-5f1f-45f1-bbe8-d3b0a021bbd9.jpeg)
 
 
 [Slack](https://slack.com/intl/en-se/) is a communication tool used by developers and companies to share information and communicate. It has grown very popular in recent years.
