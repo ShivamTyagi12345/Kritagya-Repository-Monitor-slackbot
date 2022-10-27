@@ -17,16 +17,28 @@ import (
 
 func main() {
 
-	// Load Env variables from .dot file
+	// here I am Loading the Env variables
 	godotenv.Load(".env")
 
-	token := os.Getenv("SLACK_AUTH_TOKEN")
+	token := os.Getenv("SLACK_AUTH_TOKEN") //api
 	appToken := os.Getenv("SLACK_APP_TOKEN")
+	api := slack.New(token)
+
+	channelID, timestamp, err := api.PostMessage(
+		os.Getenv("SLACK_CHANNEL_ID"), slack.MsgOptionText("Hello World!", false),
+	)
+	if err != nil {
+		fmt.Print(err)
+		return
+	}
+	fmt.Printf("Message sent successfully to channel %s at %s", channelID, timestamp)
 	// Creating a new client to slack by giving token
 	// Setting debug to true while developing
 	// Also adding a ApplicationToken option to the client
+	//One that uses the regular API and one for the websocket events
 	client := slack.New(token, slack.OptionDebug(true), slack.OptionAppLevelToken(appToken))
 
+	// Socket Mode, this allows the bot to connect via WebSocket.I need to search an alternative, Maybe a Public URL can help
 	socketClient := socketmode.New(
 		client,
 		socketmode.OptionDebug(true),
@@ -36,7 +48,9 @@ func main() {
 
 	// Creating a context that can be used to cancel goroutine
 	ctx, cancel := context.WithCancel(context.Background())
-	// Making this cancel called properly in a real program , graceful shutdown etc
+
+	// If we fail to cancel the context, the goroutine that WithCancel or WithTimeout created will be retained in memory indefinitely (until the program shuts down), causing a memory leak. If you do this a lot, your memory will balloon significantly. It's best practice to use a defer cancel() immediately after calling WithCancel() or WithTimeout()
+
 	defer cancel()
 
 	go func(ctx context.Context, client *slack.Client, socketClient *socketmode.Client) {
@@ -259,7 +273,7 @@ func handleInteractionEvent(interaction slack.InteractionCallback, client *slack
 		// This is a block action, so we need to handle it
 
 		for _, action := range interaction.ActionCallback.BlockActions {
-			log.Printf("%+v", action)
+			log.Printf("%v", action)
 			log.Println("Selected option: ", action.SelectedOptions)
 
 		}
