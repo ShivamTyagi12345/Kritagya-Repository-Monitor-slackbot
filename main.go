@@ -20,18 +20,9 @@ func main() {
 	// here I am Loading the Env variables
 	godotenv.Load(".env")
 
-	token := os.Getenv("SLACK_AUTH_TOKEN") //api
+	token := os.Getenv("SLACK_AUTH_TOKEN")
 	appToken := os.Getenv("SLACK_APP_TOKEN")
-	api := slack.New(token)
 
-	channelID, timestamp, err := api.PostMessage(
-		os.Getenv("SLACK_CHANNEL_ID"), slack.MsgOptionText("Hello World!", false),
-	)
-	if err != nil {
-		fmt.Print(err)
-		return
-	}
-	fmt.Printf("Message sent successfully to channel %s at %s", channelID, timestamp)
 	// Creating a new client to slack by giving token
 	// Setting debug to true while developing
 	// Also adding a ApplicationToken option to the client
@@ -45,6 +36,57 @@ func main() {
 		// This is the Option to set a custom logger
 		socketmode.OptionLog(log.New(os.Stdout, "socketmode: ", log.Lshortfile|log.LstdFlags)),
 	)
+
+	args := os.Args[1:]
+	fmt.Println(args)
+
+	preText := "*Hello! My Jenkins build is Finished!*"
+	jenkinsURL := "*Build URL:* " + args[0]
+	buildResult := "*" + args[1] + "*"
+	buildNumber := "*" + args[2] + "*"
+	jobName := "*" + args[3] + "*"
+
+	if buildResult == "*SUCCESS*" {
+		buildResult = buildResult + " Wohoo🎉"
+	} else {
+		buildResult = buildResult + ":x:"
+	}
+
+	dividerSection1 := slack.NewDividerBlock()
+	jenkinsBuildDetails := jobName + " #" + buildNumber + " - " + buildResult + "\n" + jenkinsURL
+
+	preTextField := slack.NewTextBlockObject("mrkdwn", preText+"\n\n", false, false)
+
+	jenkinsBuildDetailsField := slack.NewTextBlockObject("mrkdwn", jenkinsBuildDetails+"\n\n", false, false)
+
+	jenkinsBuildDetailsSection := slack.NewSectionBlock(jenkinsBuildDetailsField, nil, nil)
+
+	preTextSection := slack.NewSectionBlock(preTextField, nil, nil)
+
+	msg := slack.MsgOptionBlocks(
+		preTextSection,
+		dividerSection1,
+		jenkinsBuildDetailsSection,
+	)
+
+	_, _, _, err := client.SendMessage(
+		os.Getenv("SLACK_CHANNEL_ID"),
+		msg,
+	)
+
+	if err != nil {
+		fmt.Print(err)
+		return
+	}
+
+	channelID, timestamp, err := client.PostMessage(
+		os.Getenv("SLACK_CHANNEL_ID"), slack.MsgOptionText("Hello World!", false),
+	)
+	if err != nil {
+		fmt.Print(err)
+		return
+	}
+	fmt.Printf("Message sent successfully to channel %s at %s", channelID, timestamp)
 
 	// Creating a context that can be used to cancel goroutine
 	ctx, cancel := context.WithCancel(context.Background())
