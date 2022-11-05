@@ -47,7 +47,7 @@ func main() {
 	jobName := "*" + args[3] + "*"
 
 	if buildResult == "*SUCCESS*" {
-		buildResult = buildResult + " Wohoo🎉"
+		buildResult = buildResult + " Wohoo:tada:"
 	} else {
 		buildResult = buildResult + ":x:"
 	}
