@@ -1,0 +1,41 @@
+app-name: peer-pressure
+app-env: 'development'
+host: "127.0.0.1"
+port: 80
+debug: True
+webhook-path: 'webhook'
+webhook-method: 'POST'
+notification-medium:
+    - slack
+slack-url: "https://hooks.slack.com/services/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"
+slack-channel: C03UKUE4TD2
+slack-username: Kritagya
+slack-emoji: ':tada:'
+
+listen-events:
+    - opened
+    - commented
+    - assigned
+    - labeled
+    - review_requested
+    - review_request_removed
+    - approved
+    - changes_requested
+    - merged
+    - closed
+
+users:
+    slack:
+        ShivamTyagi12345:U03U2TN5WCX
+
+messages:
+    openes: "New PR #{number} with `{title}` on {repo} is received by {by} to {base} from {head}. Assigns {assignees}. Asks {requested_reviewers} to review the PR. {url}"
+    commented: "PR #{number} on {repo} by {by} receives a comment from {actor} - `{comment}`."
+    assigned: "PR #{number} on {repo} by {by} - {actor} assigns assignees {assignees}."
+    labeled: "PR #{number} on {repo}, {actor} labels with `{labels}`."
+    review_requested: "PR #{number} on {repo} by {by} - {actor} asks {requested_reviewers} to review the PR."
+    review_request_removed: "PR #{number} on {repo} by {by} - {actor} removes {removed_reviewer} as a reviewer."
+    approved: ":tada: - PR #{number} on {repo} by {by} is now approved by {actor}. {assignees}, go on! May be you can now merge the PR."
+    changes_requested: "PR #{number} on {repo} by {by} - {actor} commented {comment} to make some changes."
+    merged: "PR #{number} on {repo} is merged on {base} by {actor} at {at}. :cherries:."
+    closed: "PR #{number} on {repo} is closed by {actor} and not merged. :cry:."

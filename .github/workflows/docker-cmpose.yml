@@ -1,0 +1,10 @@
+version: "3"
+services:
+    application:
+        build: ./
+        container_name: peer-pressure
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        volumes:
+            - .:/var/www/html
