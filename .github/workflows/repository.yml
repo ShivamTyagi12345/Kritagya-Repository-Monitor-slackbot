@@ -16,7 +16,7 @@ jobs:
           slack-function: send-message
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           slack-channel: C03UKUE4TD2
-          slack-text: This is a message
+          slack-text: This is a thread message for ISSUE / PULL / PUSH 
 
       - name: Send "Slack Message" Result
         run: echo "Data - ${{ steps.send-message.outputs.slack-result }}"
