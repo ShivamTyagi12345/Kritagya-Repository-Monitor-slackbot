@@ -52,7 +52,7 @@ func main() {
 		buildResult = buildResult + ":x:"
 	}
 
-	dividerSection1 := slack.NewDividerBlock()
+	//dividerSection1 := slack.NewDividerBlock()
 	jenkinsBuildDetails := jobName + " #" + buildNumber + " - " + buildResult + "\n" + jenkinsURL
 
 	preTextField := slack.NewTextBlockObject("mrkdwn", preText+"\n\n", false, false)
@@ -65,7 +65,6 @@ func main() {
 
 	msg := slack.MsgOptionBlocks(
 		preTextSection,
-		dividerSection1,
 		jenkinsBuildDetailsSection,
 	)
 
