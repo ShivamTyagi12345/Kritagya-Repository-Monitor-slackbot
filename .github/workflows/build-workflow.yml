@@ -45,18 +45,18 @@ jobs:
       - name: Test Cases
         run: go test -v ./...
 
-      # Run go vet on the code
-      - name: Check go vet 
-        run: go vet ./...
+      # # Run go vet on the code
+      # - name: Check go vet 
+      #   run: go vet ./...
 
-      # Run gofmt on the code
-      - name: Check Formatting using go fmt
-        run: |
-              gofmt -s -l .
+      # # Run gofmt on the code
+      # - name: Check Formatting using go fmt
+      #   run: |
+      #         gofmt -s -l .
                         
-              if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then exit 1; fi
+      #         if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then exit 1; fi
 
-      # Run go lint on the code
+      # #Run go lint on the code
       # - name: Run go lint 
       #   run: |
       #         curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.26.0
