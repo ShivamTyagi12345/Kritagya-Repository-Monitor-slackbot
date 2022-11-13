@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout Codebase'){
             steps{
-                checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[credentialsId: 'PUBLIC_KEY', url: 'git@github.com:ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot.git']]] 
+                checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[credentialsId: 'github-ssh-key', url: 'git@github.com:ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot.git']]] 
             }
         }
 
@@ -23,7 +23,7 @@ pipeline {
         
         stage('Deploy'){
             steps{
-                echo 'Done!:tada:'
+                echo 'Done!'
             }
         }
     }
@@ -32,7 +32,7 @@ pipeline {
 
         always {
             echo 'Sending Slack message'
-            sh 'go run main.go ${BUILD_URL} ${currentBuild.currentResult} ${BUILD_NUMBER} ${JOB_NAME}'
+            sh "go run main.go ${BUILD_URL} ${currentBuild.currentResult} ${BUILD_NUMBER} ${JOB_NAME} "
         }
     }
 }
