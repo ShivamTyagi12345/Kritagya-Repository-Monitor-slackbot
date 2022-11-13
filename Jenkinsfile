@@ -32,7 +32,7 @@ pipeline {
 
         always {
             echo 'Sending Slack message'
-            sh "go run main.go ${BUILD_URL} ${currentBuild.currentResult} ${BUILD_NUMBER} ${JOB_NAME} "
+            sh 'go run main.go ${BUILD_URL} ${currentBuild.currentResult} ${BUILD_NUMBER} ${JOB_NAME}'
         }
     }
 }
