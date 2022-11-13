@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout Codebase'){
             steps{
-                checkout scm: [$class: 'GitSCM', branches: [[name: '*/mlh']], userRemoteConfigs: [[credentialsId: 'github-ssh-key', url: 'git@github.com:ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot.git']]] 
+                checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[credentialsId: 'github-ssh-key', url: 'git@github.com:ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot.git']]] 
             }
         }
 

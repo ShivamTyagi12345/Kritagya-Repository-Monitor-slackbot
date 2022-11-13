@@ -4,14 +4,17 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/slack-go/slack"
 )
 
 func main() {
 	args := os.Args[1:]
 	fmt.Println(args)
+	godotenv.Load(".env")
 
 	api := slack.New(os.Getenv("SLACK_AUTH_TOKEN"))
+	fmt.Printf("%s", os.Getenv("SLACK_AUTH_TOKEN"))
 	preText := "*Hello! Your Jenkins build has finished!*"
 	jenkinsURL := "*Build URL:* " + args[0]
 	buildResult := "*" + args[1] + "*"
