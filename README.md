@@ -1,9 +1,5 @@
-# Kritagya README
 
-Created: October 26, 2022 2:23 PM
-Reviewed: No
-
-![Purple & Yellow Career Coach LinkedIn Banner(1).png](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Purple__Yellow_Career_Coach_LinkedIn_Banner(1).png)
+![Purple__Yellow_Career_Coach_LinkedIn_Banner(1)](https://user-images.githubusercontent.com/60812924/201931547-8aa0bb70-5510-4f27-9582-d044162089e5.png)
 
 ### 💫About Kritagya
 
