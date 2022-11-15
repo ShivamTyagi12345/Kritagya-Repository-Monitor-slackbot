@@ -25,22 +25,22 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 ---
 
-1.  ***hello @Kritagya*** : This command Greets you with your username and ensures that you habve a lovely day
+1.  ***hello @Kritagya*** : This command Greets you with your username and ensures that you have a lovely day
 
 ![Untitled](Public/Untitled.png)
 
 1.  ***<Any random text followed by> @Kritagya :*** this helps us know that you are ready to throw instructions at us ❤️
 ******
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%201.png)
+![Untitled](Public/Untitled%201.png)
 
 1. ***/namaste :***  ******[******Optional slash commands******]****** now that we have our bot ready , lets learn some French using */namaste* 
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%202.png)
+![Untitled](Public/Untitled%202.png)
 
 1. Now create/close any issue in your repository, and notice how Kritagya’s automated tools pick it up **instantly** to flashes us the message 
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%203.png)
+![Untitled](Public/Untitled%203.png)
 
 - *Note*: 
  👉 This tells us which branch has opened or closed  an issue  (here, **main** )
@@ -49,33 +49,33 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
  
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%204.png)
+![Untitled](Public/Untitled%204.png)
 
 1. *Now make some changes in your local copy of Kritagya and push the changes to `main` branch* 
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%203.png)
+![Untitled](Public/Untitled%203.png)
 
 - *Note*: 
  👉 This tells us which branch has new commits pushed  (here, **main** )
 
         👉 This will also tell us about the URL  
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%204.png)
+![Untitled](Public/Untitled%204.png)
 
 1. *Start Your Jenkins Pipeline and run a build*
 
 Notice how almost Instantly a pipeline is finished and Krityaga Notifies it with either a not success or Success result.
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%205.png)
+![Untitled](Public/Untitled%205.png)
 
-![Successful with URl of the Jenkins build](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%206.png)
+![Successful with URl of the Jenkins build](Public/Untitled%206.png)
 
 Successful with URl of the Jenkins build
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%207.png)
+![Untitled](Public/Untitled%207.png)
 
 1. Merge a Pull Request onto ***main*** branch :  Welcome new Pull Requests, Kritagya makes sure that no PR goes skips the maintainers eyes 👏
 
-![Untitled](Kritagya%20README%20b1cde09440184119a95932a704b7c7db/Untitled%208.png)
+![Untitled](Public/Untitled%208.png)
 
 💫
