@@ -29,40 +29,40 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 ![Untitled](Public/Untitled.png)
 
-1.  ***<Any random text followed by> @Kritagya :*** this helps us know that you are ready to throw instructions at us ❤️
+2.  ***<Any random text followed by> @Kritagya :*** this helps us know that you are ready to throw instructions at us ❤️
 ******
 
 ![Untitled](Public/Untitled%201.png)
 
-1. ***/namaste :***  ******[******Optional slash commands******]****** now that we have our bot ready , lets learn some French using */namaste* 
+3. ***/namaste :***  ******[******Optional slash commands******]****** now that we have our bot ready , lets learn some French using */namaste* 
 
 ![Untitled](Public/Untitled%202.png)
 
-1. Now create/close any issue in your repository, and notice how Kritagya’s automated tools pick it up **instantly** to flashes us the message 
+4. Now create/close any issue in your repository, and notice how Kritagya’s automated tools pick it up **instantly** to flashes us the message 
 
 ![Untitled](Public/Untitled%203.png)
 
 - *Note*: 
- 👉 This tells us which branch has opened or closed  an issue  (here, **main** )
 
+        👉 This tells us which branch has opened or closed  an issue  (here, main )
         👉 This will also tell us about the URL  
 
  
 
 ![Untitled](Public/Untitled%204.png)
 
-1. *Now make some changes in your local copy of Kritagya and push the changes to `main` branch* 
+5. *Now make some changes in your local copy of Kritagya and push the changes to `main` branch* 
 
 ![Untitled](Public/Untitled%203.png)
 
 - *Note*: 
- 👉 This tells us which branch has new commits pushed  (here, **main** )
 
+        👉 This tells us which branch has new commits pushed  (here, main )
         👉 This will also tell us about the URL  
 
 ![Untitled](Public/Untitled%204.png)
 
-1. *Start Your Jenkins Pipeline and run a build*
+6. *Start Your Jenkins Pipeline and run a build*
 
 Notice how almost Instantly a pipeline is finished and Krityaga Notifies it with either a not success or Success result.
 
@@ -74,7 +74,7 @@ Successful with URl of the Jenkins build
 
 ![Untitled](Public/Untitled%207.png)
 
-1. Merge a Pull Request onto ***main*** branch :  Welcome new Pull Requests, Kritagya makes sure that no PR goes skips the maintainers eyes 👏
+7. Merge a Pull Request onto ***main*** branch :  Welcome new Pull Requests, Kritagya makes sure that no PR goes skips the maintainers eyes 👏
 
 ![Untitled](Public/Untitled%208.png)
 
