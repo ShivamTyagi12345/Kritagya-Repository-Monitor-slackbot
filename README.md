@@ -19,7 +19,7 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 2. On a local computer where you have a Go installed, clone this repository and go to `.env.example`  file. Copy the contents
 3. Next, create a new file titled `.env` and paste the contents ,followed by replacing the values available in [slack-api](https://api.slack.com/apps) dashboard 
 4. Go to *Jenkinsfile* and replace *credentialsId*  with your ssh key and *url* with your repository url (*see*,line 8) , Next, replace the *slack-channel* in  repository.yml with the channelID ,you want to send notifications to                        
-5. Run `go run main.go [https://localhost](https://localhost):3000 SUCCESS test 1` in terminal 🎊
+5. Run `go run main.go https://localhost:3000 SUCCESS test 1` in terminal 🎊
 
 💫**How to use commands of Kritagya**
 
