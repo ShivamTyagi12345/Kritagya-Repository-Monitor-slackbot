@@ -71,4 +71,22 @@ Successful with URl of the Jenkins build
 
 ![Untitled](Public/Untitled%208.png)
 
-💫
+
+💫 **Scalability Scope**
+
+---
+
+The slackbot programme must be updated when new versions of the slackbot programme are available if you decide to package the slackbot software into an executable that can be deployed on the Jenkins instance. When the Jenkins pipeline script runs, you must make sure that the go programming language is installed and that you can clone down the most recent version of the go application from github.
+
+💫**Privacy and Security**
+
+---
+
+Currently , one vulnerability with Kritagya happens to be using the https://github.com/archive/github-actions-slack 
+This essestialy doesn’t accept environment variables as the slack channel-ID, This can be removed by upgrading to the paid version available, or building a environment configuration management tool from scratch
+
+💫 **Challenges**
+
+---
+
+We can change our turning a slackbot software into microservice utilise just one API endpoint endpoint requires a user-hash in json. the payload in json and the payload What were the previous orders? line references if we want to run the Slackbot application. Is this the only dependence for Jenkins? needs Does the curl tool allow you to call UH? the API's json payload endpoint There will be no need to leave as a result. programming language installed on jenkins or by setting up the Slackbot programme itself on Jenkins Additionally, this will generally be a scalable substitute for what we had earlier
