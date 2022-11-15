@@ -27,7 +27,7 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 1.  ***hello @Kritagya*** : This command Greets you with your username and ensures that you have a lovely day
 
-![Untitled](Public/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/60812924/201941587-6ef4e782-ba96-4dd2-8bab-1af481b36f26.png)
 
 2.  ***<Any random text followed by> @Kritagya :*** this helps us know that you are ready to throw instructions at us ❤️
 ******
