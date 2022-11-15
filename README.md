@@ -38,7 +38,7 @@ Hello @Kritagya
 ![Untitled](Public/Untitled%202.png)
 
 ```kotlin
-**/red-pill-blue-pill** 
+**/red-pill-blue-pills** 
 ```
 
 ![Untitled](Public/Untitled%203.png)
