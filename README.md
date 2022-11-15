@@ -40,27 +40,21 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 4. Now create/close any issue in your repository, and notice how Kritagya’s automated tools pick it up **instantly** to flashes us the message 
 
-![Untitled](Public/Untitled%203.png)
+
 
 - *Note*: 
 
         👉 This tells us which branch has opened or closed  an issue  (here, main )
         👉 This will also tell us about the URL  
 
- 
-
-![Untitled](Public/Untitled%204.png)
-
 5. *Now make some changes in your local copy of Kritagya and push the changes to `main` branch* 
 
-![Untitled](Public/Untitled%203.png)
 
 - *Note*: 
 
         👉 This tells us which branch has new commits pushed  (here, main )
         👉 This will also tell us about the URL  
 
-![Untitled](Public/Untitled%204.png)
 
 6. *Start Your Jenkins Pipeline and run a build*
 
