@@ -40,6 +40,7 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 4. Now create/close any issue in your repository, and notice how Kritagya’s automated tools pick it up **instantly** to flashes us the message 
 
+![image](https://user-images.githubusercontent.com/60812924/201945629-db9c6acc-7432-4f19-acb7-b4f49baaefe6.png)
 
 
 - *Note*: 
@@ -48,6 +49,8 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
         👉 This will also tell us about the URL  
 
 5. *Now make some changes in your local copy of Kritagya and push the changes to `main` branch* 
+
+ ![image](https://user-images.githubusercontent.com/60812924/201945649-5d0900ba-d7b2-44cf-b11c-02624eda0356.png)
 
 
 - *Note*: 
@@ -62,11 +65,7 @@ Notice how almost Instantly a pipeline is finished and Krityaga Notifies it with
 
 ![Untitled](Public/Untitled%205.png)
 
-![Successful with URl of the Jenkins build](Public/Untitled%206.png)
-
 Successful with URl of the Jenkins build
-
-![Untitled](Public/Untitled%207.png)
 
 7. Merge a Pull Request onto ***main*** branch :  Welcome new Pull Requests, Kritagya makes sure that no PR goes skips the maintainers eyes 👏
 
