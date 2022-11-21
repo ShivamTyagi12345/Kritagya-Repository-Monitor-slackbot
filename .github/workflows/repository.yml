@@ -21,7 +21,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "Building repo *product-service*"
+                  "text": "Configuring branch: *main🚨*"
                 }
               },
               {
@@ -38,7 +38,7 @@ jobs:
                   },
                   {
                     "type": "plain_text",
-                    "text": "Estimated time is 1 min"
+                    "text": "A push, a pull request or an issue is made "
                   }
                 ]
               },
@@ -59,7 +59,39 @@ jobs:
             ${{
             fromJson(steps.send-message.outputs.slack-result).response.channel
             }}
-          slack-text: "Issues\U0001F6B8 are available ![here](https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/issues) and new commits \U0001F6B8 can be seen at https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/actions"
+          # slack-text: "Issues\U0001F6B8 are available ![here](https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/issues) and new commits \U0001F6B8 can be seen at https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/actions"
+          slack-blocks: |-
+            [
+              {
+                "block_id": "text1",
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Check ![ *Open or closed 🚨* ] (https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/issues)"
+                }
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "block_id": "text2",
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "image",
+                    "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1200px-Flag_of_Sweden.svg.png",
+                    "alt_text": "images"
+                  },
+                  {
+                    "type": "plain_text",
+                    "text": "Check ![ *New commits🚨* ] (https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/actions)"
+                  }
+                ]
+              },
+              {
+                "type": "divider"
+              }
+            ]
           slack-optional-thread_ts: >-
             ${{
             fromJson(steps.send-message.outputs.slack-result).response.message.ts
