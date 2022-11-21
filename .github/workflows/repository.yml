@@ -1,23 +1,20 @@
 name: slack-thread
-
-on: [push, issues]
-
+'on':
+  - push
+  - issues
 jobs:
   slack-thread:
     runs-on: ubuntu-20.04
-    name: Sends a message to Slack when a push, a pull request or an issue is made
-
+    name: 'Sends a message to Slack when a push, a pull request or an issue is made'
     steps:
       - name: Send Slack Message
         uses: archive/github-actions-slack@master
         id: send-message
-
         with:
           slack-function: send-message
-          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+          slack-bot-user-oauth-access-token: '${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}'
           slack-channel: C03UKUE4TD2
-          # slack-text: 🚨 **Issues** Open or Close 🚸 OR **Commits** 🚸 are pushed Branch - **main**
-           slack-blocks: >-
+          slack-blocks: |-
             [
               {
                 "block_id": "text1",
@@ -49,22 +46,23 @@ jobs:
                 "type": "divider"
               }
             ]
-
       - name: Send "Slack Message" Result
-        run: echo "Data - ${{ steps.send-message.outputs.slack-result }}"
-
+        run: 'echo "Data - ${{ steps.send-message.outputs.slack-result }}"'
       - name: Some step in between
         run: echo "..."
-
       - name: Send Thread Message
         uses: archive/github-actions-slack@master
         with:
           slack-function: send-message
-          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
-          slack-channel: ${{ fromJson(steps.send-message.outputs.slack-result).response.channel }}
-          slack-text: Issues🚸 are available ![here](https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/issues) and new commits 🚸 can be seen at https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/actions
-          slack-optional-thread_ts: ${{ fromJson(steps.send-message.outputs.slack-result).response.message.ts }}
-          #slack-optional-reply_broadcast: true # To broadcast thread reply in channel
-
+          slack-bot-user-oauth-access-token: '${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}'
+          slack-channel: >-
+            ${{
+            fromJson(steps.send-message.outputs.slack-result).response.channel
+            }}
+          slack-text: "Issues\U0001F6B8 are available ![here](https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/issues) and new commits \U0001F6B8 can be seen at https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/actions"
+          slack-optional-thread_ts: >-
+            ${{
+            fromJson(steps.send-message.outputs.slack-result).response.message.ts
+            }}
       - name: Send "Send Thread Message" Result
-        run: echo "Data - ${{ steps.send-message.outputs.slack-result }}"
+        run: 'echo "Data - ${{ steps.send-message.outputs.slack-result }}"'
