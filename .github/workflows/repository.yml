@@ -67,7 +67,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "Check ![ *Open or closed 🚨* ] (https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/issues)"
+                  "text": "Check ![*Open or closed 🚨*](https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/issues)"
                 }
               },
               {
@@ -79,18 +79,26 @@ jobs:
                 "elements": [
                   {
                     "type": "image",
-                    "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1200px-Flag_of_Sweden.svg.png",
+                    "image_url": "https://unsplash.com/photos/V5vqWC9gyEU",
                     "alt_text": "images"
                   },
                   {
                     "type": "plain_text",
-                    "text": "Check ![ *New commits🚨* ] (https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/actions)"
+                    "text": "In case new issues arent raised, the notification is for New commits on branch **main**"
                   }
                 ]
               },
               {
                 "type": "divider"
-              }
+              },
+              {
+                "block_id": "text3",
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Check ![*New commits🚨*](https://github.com/ShivamTyagi12345/Kritagya-Repository-Monitor-slackbot/actions)"
+                }
+              },
             ]
           slack-optional-thread_ts: >-
             ${{
