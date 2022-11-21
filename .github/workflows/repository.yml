@@ -41,7 +41,7 @@ jobs:
                   },
                   {
                     "type": "plain_text",
-                    "text": "Estimated time: 1 min"
+                    "text": "Estimated time is 1 min"
                   }
                 ]
               },
