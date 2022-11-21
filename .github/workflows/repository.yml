@@ -16,7 +16,7 @@ jobs:
           slack-function: send-message
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           slack-channel: C03UKUE4TD2
-          slack-text: Your repository either has new Issues🚸 or new Commits🚸 are pushed branch -[ MAIN 😊]
+          slack-text: 🚨 **Issues**  Open or Close 🚸  OR  **Commits** 🚸 are pushed Branch - **MAIN**
 
       - name: Send "Slack Message" Result
         run: echo "Data - ${{ steps.send-message.outputs.slack-result }}"
