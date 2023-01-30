@@ -36,7 +36,8 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 3. ***/namaste :***  ******[******Optional slash commands******]****** now that we have our bot ready , lets learn some French using */namaste* 
 
-![Untitled](Public/Untitled%202.png)
+![image](https://user-images.githubusercontent.com/60812924/215543531-6f89bdc9-fca0-4b2a-b391-270815b7f158.png)
+
 
 4. Now create/close any issue in your repository, and notice how Kritagya’s automated tools pick it up **instantly** to flashes us the message 
 
@@ -63,7 +64,8 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 Notice how almost Instantly a pipeline is finished and Krityaga Notifies it with either a not success or Success result.
 
-![Untitled](Public/Untitled%205.png)
+![image](https://user-images.githubusercontent.com/60812924/215543956-af54c752-3106-44ba-b3e5-911609b18002.png)
+
 
 Successful with URl of the Jenkins build
 
