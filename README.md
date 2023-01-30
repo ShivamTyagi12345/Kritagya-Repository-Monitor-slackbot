@@ -71,7 +71,8 @@ Successful with URl of the Jenkins build
 
 7. Merge a Pull Request onto ***main*** branch :  Welcome new Pull Requests, Kritagya makes sure that no PR goes skips the maintainers eyes 👏
 
-![Untitled](Public/Untitled%208.png)
+![image](https://user-images.githubusercontent.com/60812924/215544759-126bb4e9-2193-464b-9fd2-421b9bb3c2dc.png)
+
 
 
 💫 **Scalability Scope**
