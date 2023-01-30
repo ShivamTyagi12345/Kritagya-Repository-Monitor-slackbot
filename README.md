@@ -1,7 +1,7 @@
 
 ![Purple__Yellow_Career_Coach_LinkedIn_Banner(1)](https://user-images.githubusercontent.com/60812924/201931547-8aa0bb70-5510-4f27-9582-d044162089e5.png)
 
-### 💫About Kritagya
+### 💫About Kritagya  ....
 
 ---
 
