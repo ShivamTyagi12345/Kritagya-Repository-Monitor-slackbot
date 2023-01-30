@@ -11,6 +11,24 @@ Recently, it has become more and more common for engineers to manage their small
 
 In order to manage Jenkins build results, incorporate Pull requests, and notify the team of open issues using [Github Actions](https://github.com/archive/github-actions-slack), Kritagya may link to the Slack workspace and channels. To send requests to a Go backend, the bot programme will use Websocket, also referred to as "Socket-Mode" in the Slack community.
 
+💫 **Go Script for Slack Notifications**
+
+---
+
+Get notified in Slack channels with ease! Our Go script is here to make your life easier. With just a few lines of code, you'll be able to keep track of your builds and never miss an update again.
+
+Our script is packed with all the essentials:
+
+    - Imports the necessary packages, including `github.com/joho/godotenv` for loading environment variables and `github.com/slack-go/slack` for connecting to Slack.
+    - Defines a main function that creates a new Slack client and socket client with your Slack tokens.
+    - Sends a message to the Slack channel of your choice with the latest build details, including the Build URL, Build Result, Build Number, and Job Name, all presented in a stylish markdown format.
+    - Sends a second message with the classic "Hello World!" to showcase the power of our script.
+    - Creates a context and launches a goroutine to handle incoming Slack events, so you can stay in the loop.
+    - The goroutine listens to incoming events, logs any errors, and shuts down the socket mode listener on context cancellation, keeping your code error-free.
+    - Defers the context cancellation to prevent memory leaks, ensuring your script runs smoothly and efficiently.
+
+Upgrade your Slack game today and make the most of our Go script for Slack notifications!
+
 💫 **How to set up Kritagya locally** 
 
 ---
