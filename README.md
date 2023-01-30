@@ -19,7 +19,7 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 2. On a local computer where you have a Go installed, clone this repository and go to `.env.example`  file. Copy the contents
 3. Next, create a new file titled `.env` and paste the contents ,followed by replacing the values available in [slack-api](https://api.slack.com/apps) dashboard 
 4. Go to *Jenkinsfile* and replace *credentialsId*  with your ssh key and *url* with your repository url (*see*,line 8) , Next, replace the *slack-channel* in  repository.yml with the channelID ,you want to send notifications to                        
-5. Run `go run main.go https://localhost:3000 SUCCESS test 1` in terminal 🎊
+5. Run `go run main.go https://localhost:3000 SUCCESS test 1` in terminal to run a dummy test 🎊
 
 💫**How to use commands of Kritagya**
 
@@ -50,7 +50,7 @@ In order to manage Jenkins build results, incorporate Pull requests, and notify 
 
 5. *Now make some changes in your local copy of Kritagya and push the changes to `main` branch* 
 
- ![image](https://user-images.githubusercontent.com/60812924/201945649-5d0900ba-d7b2-44cf-b11c-02624eda0356.png)
+![WhatsApp Image 2022-11-21 at 20 41 09](https://user-images.githubusercontent.com/94890149/203089843-397b8a11-91f0-49ed-ad03-d0b41260f17b.jpeg)
 
 
 - *Note*: 
@@ -89,4 +89,6 @@ This essestialy doesn’t accept environment variables as the slack channel-ID, 
 
 ---
 
+
 We can change our turning a slackbot software into microservice utilise just one API endpoint endpoint requires a user-hash in json. the payload in json and the payload What were the previous orders? line references if we want to run the Slackbot application. Is this the only dependence for Jenkins? needs Does the curl tool allow you to call UH? the API's json payload endpoint There will be no need to leave as a result. programming language installed on jenkins or by setting up the Slackbot programme itself on Jenkins Additionally, this will generally be a scalable substitute for what we had earlier .
+
