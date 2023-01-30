@@ -89,4 +89,6 @@ This essestialy doesn’t accept environment variables as the slack channel-ID, 
 
 ---
 
-We can change our turning a slackbot software into microservice utilise just one API endpoint endpoint requires a user-hash in json. the payload in json and the payload What were the previous orders? line references if we want to run the Slackbot application. Is this the only dependence for Jenkins? needs Does the curl tool allow you to call UH? the API's json payload endpoint There will be no need to leave as a result. programming language installed on jenkins or by setting up the Slackbot programme itself on Jenkins Additionally, this will generally be a scalable substitute for what we had earlier.
+
+We can change our turning a slackbot software into microservice utilise just one API endpoint endpoint requires a user-hash in json. the payload in json and the payload What were the previous orders? line references if we want to run the Slackbot application. Is this the only dependence for Jenkins? needs Does the curl tool allow you to call UH? the API's json payload endpoint There will be no need to leave as a result. programming language installed on jenkins or by setting up the Slackbot programme itself on Jenkins Additionally, this will generally be a scalable substitute for what we had earlier .
+
